@@ -48,8 +48,8 @@ func convertCsvtoJson() error {
 		return err
 	}
 
-	var emp models.Person
-	var employees []models.Person
+	var emp models.Data
+	var employees []models.Data
 
 	for _, each := range csvData {
 		emp.ID, _ = strconv.Atoi(each[0])
@@ -123,28 +123,28 @@ func convertCsvtoJson() error {
 	return nil
 }
 
-func getPersonByIDs(ids []int) ([]models.Person, error) {
+func getPersonByIDs(ids []int) ([]models.Data, error) {
 	err := convertCsvtoJson()
 	if err != nil {
-		return []models.Person{}, err
+		return []models.Data{}, err
 	}
 
 	filename := "newdata.json"
 	file, err := os.Open(filename)
 	if err != nil {
-		return []models.Person{}, err
+		return []models.Data{}, err
 	}
 	defer file.Close()
 	data, err := ioutil.ReadAll(file)
 	if err != nil {
-		return []models.Person{}, err
+		return []models.Data{}, err
 	}
-	var people []models.Person
+	var people []models.Data
 	err = json.Unmarshal(data, &people)
 	if err != nil {
-		return []models.Person{}, err
+		return []models.Data{}, err
 	}
-	var result []models.Person
+	var result []models.Data
 	for _, person := range people {
 		for _, id := range ids {
 			if person.ID == id {
