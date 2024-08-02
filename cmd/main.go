@@ -33,17 +33,17 @@ func getPersonByIDs(ids []int) ([]models.Person, error) {
 	filename := "data.json"
 	file, err := os.Open(filename)
 	if err != nil {
-		return nil, err
+		return []models.Person{}, err
 	}
 	defer file.Close()
 	data, err := ioutil.ReadAll(file)
 	if err != nil {
-		return nil, err
+		return []models.Person{}, err
 	}
 	var people []models.Person
 	err = json.Unmarshal(data, &people)
 	if err != nil {
-		return nil, err
+		return []models.Person{}, err
 	}
 	var result []models.Person
 	for _, person := range people {
