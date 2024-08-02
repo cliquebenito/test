@@ -36,8 +36,11 @@ func convertCsvtoJson() error {
 		return err
 
 	}
-	defer csvFile.Close()
-
+	defer func() {
+		if err := csvFile.Close(); err != nil {
+			return
+		}
+	}()
 	reader := csv.NewReader(csvFile)
 	reader.FieldsPerRecord = -1
 
@@ -56,10 +59,17 @@ func convertCsvtoJson() error {
 	if err != nil {
 		return err
 	}
-	defer jsonFile.Close()
-
-	jsonFile.Write(jsonData)
-	jsonFile.Close()
+	defer func() {
+		if err := jsonFile.Close(); err != nil {
+			return
+		}
+	}()
+	if _, err = jsonFile.Write(jsonData); err != nil {
+		return err
+	}
+	if err = jsonFile.Close(); err != nil {
+		return err
+	}
 	return nil
 }
 
