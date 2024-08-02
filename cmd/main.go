@@ -35,7 +35,8 @@ func getItemsHandler(c *gin.Context) {
 func convertCsvtoJson() error {
 	csvFile, err := os.Open("ueba(3).csv")
 	if err != nil {
-		fmt.Println(err)
+		return err
+
 	}
 	defer csvFile.Close()
 
@@ -44,8 +45,7 @@ func convertCsvtoJson() error {
 
 	csvData, err := reader.ReadAll()
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		return err
 	}
 
 	var emp models.User
@@ -107,15 +107,14 @@ func convertCsvtoJson() error {
 
 	jsonData, err := json.Marshal(employees)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		return err
 	}
 
 	fmt.Println(string(jsonData))
 
 	jsonFile, err := os.Create("newdata.json")
 	if err != nil {
-		fmt.Println(err)
+		return err
 	}
 	defer jsonFile.Close()
 
