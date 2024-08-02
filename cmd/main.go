@@ -48,8 +48,8 @@ func convertCsvtoJson() error {
 		return err
 	}
 
-	var emp models.User
-	var employees []models.User
+	var emp models.Person
+	var employees []models.Person
 
 	for _, each := range csvData {
 		emp.ID, _ = strconv.Atoi(each[0])
