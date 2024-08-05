@@ -1,1 +1,7 @@
-port: "localhost:8080"
+port: "8000"
+test_db:
+  host: "localhost"
+  port: "5435"
+  username: "postgres"
+  database: "postgres"
+  sslmode: "disable"

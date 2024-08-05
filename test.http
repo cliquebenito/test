@@ -1,6 +1,43 @@
-GET http://localhost:8080/get-items
+POST http://localhost:8000/auth/sign-up
 Content-Type: application/json
+
+{
+  "email":"skr@mail.ru",
+  "password":"hesoyam"
+}
+
+
+###
+GET http://localhost:8000/api/get-items
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjI4NzEwMTIsImlhdCI6MTcyMjgyNzgxMiwidXNlcl9pZCI6N30.fzeUTBiqMaqdREcpHy7RXKpXD-OW6jxUanDXR2i2jBk
 
 {
   "id": [1,2]
 }
+
+
+###
+
+
+POST http://localhost:8000/auth/sign-in
+Content-Type: application/json
+
+{
+  "email":"skroallfbrad@mail.ru",
+  "password":"hesoyam"
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
