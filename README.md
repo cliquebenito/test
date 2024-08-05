@@ -1,3 +1,5 @@
-Запуск приложения осуществляется через go build.
-Если через go run main в файле config.go необходимо раскомментировать строку. 
-Для тестирования запроса есть файл test.http
+Start app - go build
+
+Create postgres - docker-compose up
+
+Test app file - test.http
