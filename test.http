@@ -2,7 +2,7 @@ POST http://localhost:8000/auth/sign-up
 Content-Type: application/json
 
 {
-  "email":"skr@mail.ru",
+  "email":"hesoyam@mail.ru",
   "password":"hesoyam"
 }
 
@@ -24,7 +24,7 @@ POST http://localhost:8000/auth/sign-in
 Content-Type: application/json
 
 {
-  "email":"skroallfbrad@mail.ru",
+  "email":"hesoyam@mail.ru",
   "password":"hesoyam"
 
 }

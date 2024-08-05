@@ -15,8 +15,6 @@ type PgConfig struct {
 }
 
 func InitConfig() error {
-	// go run main.go
-	//viper.AddConfigPath("../config")
 
 	viper.AddConfigPath("config")
 	viper.SetConfigName("config")

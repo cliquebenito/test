@@ -17,9 +17,9 @@ func (h *Handler) userIdentity(c *gin.Context) {
 	header := c.GetHeader(authHeader)
 
 	if header == "" {
-		userId = -1
-		c.Set(userCtx, userId)
+		newErrorResponse(c, http.StatusUnauthorized, "empty auth header")
 		return
+
 	}
 	headerParts := strings.Split(header, " ")
 	if len(headerParts) != 2 {
